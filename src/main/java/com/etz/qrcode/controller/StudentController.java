@@ -28,14 +28,14 @@ public class StudentController {
         studentService.createStudent(studentDto);
     }
 
-//    @RequestMapping(value = "get/student/{matricNumber}", method = RequestMethod.GET)
-//    public void qrcode(@PathVariable("matricNumber") String matricNumber, HttpServletResponse response) throws Exception {
-//        response.setContentType("image/png");
-//        OutputStream outputStream = response.getOutputStream();
-//        outputStream.write(QRgenerator.getQRCodeImage(matricNumber, 200, 200));
-//        outputStream.flush();
-//        outputStream.close();
-//    }
+    @GetMapping(value = "generateQr/{matricNumber}")
+    public void qrcode(@PathVariable("matricNumber") String matricNumber, HttpServletResponse response) throws Exception {
+        response.setContentType("image/png");
+        OutputStream outputStream = response.getOutputStream();
+        outputStream.write(QRgenerator.getQRCodeImage(matricNumber, 200, 200));
+        outputStream.flush();
+        outputStream.close();
+    }
 
 
 }

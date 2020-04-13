@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author ajao temitayo
@@ -21,6 +22,6 @@ public class DepartmentDto {
     @NotBlank(message = "Department name cannot be empty")
     private String name;
 
-    @NotBlank(message = "Department fee cannot be empty")
+    @NotNull(message = "Department fee cannot be empty")
     private long fee;
 }

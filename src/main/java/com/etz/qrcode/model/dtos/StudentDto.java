@@ -1,6 +1,5 @@
 package com.etz.qrcode.model.dtos;
 
-import com.etz.qrcode.model.entities.Department;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
@@ -28,7 +27,7 @@ public class StudentDto {
     private String lastName;
 
     @NotNull(message = "Department name cannot be empty")
-    private Department department;
+    private long departmentId;
 
     @NotBlank(message = "Department name cannot be empty")
     @Email(message = "Must be a valid email")

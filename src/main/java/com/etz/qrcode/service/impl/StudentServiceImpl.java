@@ -23,9 +23,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void createStudent(StudentDto studentDto) {
         Student student = new Student();
-        Department department = student.getDepartment();
-        if(departmentRepository.existsById(department.getId())){
+        if(departmentRepository.existsById(studentDto.getDepartmentId())){
+            Department department = departmentRepository.findById(studentDto.getDepartmentId()).get();
             BeanUtils.copyProperties(studentDto, student);
+            student.setDepartment(department);
             studentRepository.save(student);
         }else{
             throw new DepartmentNotFoundException("Department with this ID does not exist");
